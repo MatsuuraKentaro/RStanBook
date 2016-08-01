@@ -1,0 +1,16 @@
+library(ggplot2)
+source('../common.R')
+
+load('output/result-model12-2.RData')
+ms <- rstan::extract(fit)
+# quantile(ms$s_mu, probs=c(0.1, 0.5, 0.9))
+# quantile(ms$s_Y, probs=c(0.1, 0.5, 0.9))
+
+d_est <- data.frame.quantile.mcmc(x=1:(T+T_pred), y_mcmc=ms$mu_all, probs=c(0.1, 0.25, 0.5, 0.75, 0.9))
+p <- ggplot.5quantile(data=d_est, size=0.5)
+p <- p + geom_point(data=d, aes(x=X, y=Y), shape=16, size=2.5)
+p <- p + geom_line(data=d, aes(x=X, y=Y), size=1)
+p <- p + geom_vline(xintercept=T, linetype='dashed')
+p <- p + labs(x='Time (Day)', y='Y')
+p <- p + coord_cartesian(xlim=c(1, 24), ylim=c(10,14))
+ggsave(file='output/fig12-3-left.png', plot=p, dpi=300, w=4, h=3)

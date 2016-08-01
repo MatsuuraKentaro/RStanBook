@@ -1,0 +1,16 @@
+library(ggplot2)
+source('../common.R')
+
+load('output/result-model12-7.RData')
+ms <- rstan::extract(fit)
+
+d_est <- data.frame.quantile.mcmc(x=1:T, y_mcmc=ms$mu)
+p <- ggplot.5quantile(data=d_est, size=0.5)
+p <- p + geom_line(data=d_est, aes(x=X, y=p50))
+p <- p + geom_line(data=d_est, aes(x=X, y=p2.5), size=0.2)
+p <- p + geom_line(data=d_est, aes(x=X, y=p97.5), size=0.2)
+p <- p + geom_line(data=d_est, aes(x=X, y=p25), size=0.2)
+p <- p + geom_line(data=d_est, aes(x=X, y=p75), size=0.2)
+p <- p + geom_line(data=d, aes(x=X, y=Y), size=0.3, alpha=0.4)
+p <- p + labs(x='Time (Second)', y='Y')
+ggsave(file='output/fig12-5-right.png', plot=p, dpi=300, w=4, h=3)

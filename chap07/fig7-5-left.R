@@ -1,0 +1,10 @@
+library(ggplot2)
+
+d <- read.csv(file='input/data-aircon.txt')
+p <- ggplot(data=d, aes(x=X, y=Y))
+p <- p + theme_bw(base_size=18)
+p <- p + geom_point(shape=1, size=2)
+p <- p + labs(x='X', y='Y')
+p <- p + scale_x_continuous(limits=c(-3, 32))
+p <- p + scale_y_continuous(breaks=seq(from=0, to=100, by=50), limits=c(0, 130))
+ggsave(file='output/fig7-5-left.png', plot=p, dpi=300, w=4, h=3)
