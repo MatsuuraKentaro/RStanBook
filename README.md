@@ -31,6 +31,9 @@ setwd('RStanBook/chap04/exercise/')
 source('ex1.R')
 ```
 
+## Stanのバージョンアップに伴う補足
+[こちら](update.md)
+
 ## 正誤表
 [こちら](errata.md)
 
