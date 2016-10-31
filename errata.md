@@ -4,3 +4,5 @@
 | 1 | 167 | コードを除いて7行目</br>および脚注1行目 | Box-Mueller変換 | Box-Muller変換 |
 | 1 | 261 | 【B】の下から3つめ | Box-Mueller変換 | Box-Muller変換 |
 | 1 | 61 | 脚注1 | http://www2.kobe-u.ac.jp/~yyanai/jp/quant-methods-stata/R/ch12withR.html | http://yukiyanai.github.io/jp/quant-methods-stata/R/ch12withR.html |
+| 1 | 213 | データファイル11.5のキャプション | data-mix3.txt | data-ZIP.txt |
+| 1 | 218 | コードを除いて5行目 | qとmuの順位相関係数 | qとlambdaの順位相関係数 |
