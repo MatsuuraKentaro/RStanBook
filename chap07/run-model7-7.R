@@ -1,6 +1,6 @@
 library(rstan)
 
-d <- read.csv(file='input/data-protein.txt')
+d <- read.csv(file='input/data-protein.txt', stringsAsFactors=FALSE)
 idx <- grep('<', d$Y)
 Y_obs <- as.numeric(d[-idx, ])
 L <- as.numeric(sub('<', '', d[idx,]))[1]

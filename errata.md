@@ -1,5 +1,6 @@
 | 修正のある刷 | ページ | 行 | 修正前 | 修正後 |
 |:-----------|:------------|:------------|:------------|:------------|
+| 2 | 118 | コードの3行目 | `d <- read.csv(file='input/data-protein.txt')` | `d <- read.csv(file='input/data-protein.txt', stringsAsFactors=FALSE)` |
 | 2 | 205 | 下から10行目 | はStanで用意されている便利な関数であり，(11.4)式のlog Bernoulli(Y&#124;q)と等価である． | (前の文と重複しているため削除) |
 | 1 | 8 | 11行目 | ![fig01a](errata/fig01a.png) | ![fig01b](errata/fig01b.png) |
 | 1 | 29 | 3行目 | ちなみにMacの場合には，Rとは別にApp StoreからXcodeとそのC++ toolsをインストールする必要がある． | Xcode自体はインストールする必要がありません．</br><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">Macでコマンドライン開発ツールをインストールするには，ターミナルに xcode-select --install と打ち込むのが推奨だけれど，gcc と打ち込むだけでもインストールが始まるみたいだ。Xcodeはゴミ箱に捨ててもたいてい困らない</p>&mdash; Haruhiko Okumura (@h_okumura) <a href="https://twitter.com/h_okumura/status/790005951650631680">2016年10月23日</a></blockquote> |
