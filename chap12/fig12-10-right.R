@@ -1,8 +1,8 @@
 library(Nippon)
 
 load('output/result-model12-14.RData')
-la <- rstan::extract(fit)
-est <- apply(la$r, 2, mean)
+ms <- rstan::extract(fit)
+est <- apply(ms$r, 2, mean)
 est[est > 19] <- 19
 cols <- lattice::level.colors(
   est, at=seq(9, 19, length=81),
