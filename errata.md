@@ -1,5 +1,6 @@
 | 修正のある刷 | ページ | 行 | 修正前 | 修正後 |
 |:-----------|:------------|:------------|:------------|:------------|
+| 4 | 21 | 10 | WinBUG | WinBUGS |
 | 2 | 118 | コードの3行目 | `d <- read.csv(file='input/data-protein.txt')` | `d <- read.csv(file='input/data-protein.txt', stringsAsFactors=FALSE)` |
 | 2 | 205 | 下から10行目 | はStanで用意されている便利な関数であり，(11.4)式のlog Bernoulli(Y&#124;q)と等価である． | (前の文と重複しているため削除) |
 | 1 | 8 | 11行目 | ![fig01a](errata/fig01a.png) | ![fig01b](errata/fig01b.png) |
