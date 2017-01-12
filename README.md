@@ -33,25 +33,27 @@ source('ex1.R')
 
 ## StanやRStanのバージョンアップに伴う補足
 [こちら](update.md)
-- バージョン2.14から, RからStanにデータを渡す場合`data.frame`だとエラーが出るようになりましたので注意してください.
+- バージョン2.14では, RからStanにデータを渡す場合`data.frame`だとエラーが出るようになりましたので注意してください.
 
 ## 正誤表
 [こちら](errata.md)
 
-## 実行環境
-* OS: Windows 7 SP1 (64bit)
-* R 3.3.1
-* Rtools34
-* Stan 2.11
-* rstan 2.11.1
-* ggplot 2.1.0
-* ggmcmc 1.1
-* GGally 1.1.0
-* ellipse 0.3.8
-* hexbin 1.27.1
-* ggtern 2.1.1
-* mvtnorm 1.0-5
-* bda 5.1.6
-* gtools 3.5.0
-* Nippon 0.6.3-1
-* ggrepel 0.5
+## ソースコードの実行環境
+| ソフトやパッケージ名 | 執筆時点 | サポートページ内の現状 |
+|:-----------|:------------|:------------|
+| OS | Windows 7 SP1 (64bit) | Windows 7 SP1 (64bit) |
+| R | 3.3.1 | 3.3.1 |
+| Rtools | Rtools34 | Rtools34 |
+| Stan | 2.11 | 2.14 |
+| rstan | 2.11.1 | 2.14.1 |
+| ggplot | 2.1.0 | 2.2.0 |
+| ggmcmc | 1.1 | 1.1 |
+| GGally | 1.1.0 | 1.3.0 |
+| ellipse | 0.3.8 | 0.3.8 |
+| hexbin | 1.27.1 | 1.27.1 |
+| ggtern | 2.1.1 | 2.2.0 |
+| mvtnorm | 1.0.5 | 1.0.5 |
+| bda | 5.1.6 | 5.1.6 |
+| gtools | 3.5.0 | 3.5.0 |
+| Nippon | 0.6.3.1 | 0.6.3.1 |
+| ggrepel | 0.5 | 0.6.5 |
