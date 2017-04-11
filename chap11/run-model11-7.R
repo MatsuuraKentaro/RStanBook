@@ -3,7 +3,7 @@ library(rstan)
 d <- read.csv('input/data-ZIP.txt')
 d$Age <- d$Age/10
 X <- cbind(1, d[,-ncol(d)])
-data <- list(N=nrow(d), D=ncol(X), Y=d$Y, X=as.matrix(X))
+data <- list(N=nrow(d), D=ncol(X), Y=d$Y, X=X)
 fit <- stan(file='model/model11-7.stan', data=data,
   pars=c('b', 'q', 'lambda'), seed=1234)
 

@@ -33,7 +33,6 @@ source('ex1.R')
 
 ## StanやRStanのバージョンアップに伴う補足
 [こちら](update.md)
-- バージョン2.14では, RからStanにデータを渡す場合`data.frame`だとエラーが出るようになりましたので注意してください.
 
 ## 正誤表
 [こちら](errata.md)
@@ -45,8 +44,8 @@ source('ex1.R')
 | R | 3.3.1 | 3.3.1 |
 | Rtools | Rtools34 | Rtools34 |
 | Stan | 2.11 | 2.14 |
-| rstan | 2.11.1 | 2.14.1 |
-| ggplot | 2.1.0 | 2.2.0 |
+| rstan | 2.11.1 | 2.14.2 |
+| ggplot | 2.1.0 | 2.2.1 |
 | ggmcmc | 1.1 | 1.1 |
 | GGally | 1.1.0 | 1.3.0 |
 | ellipse | 0.3.8 | 0.3.8 |

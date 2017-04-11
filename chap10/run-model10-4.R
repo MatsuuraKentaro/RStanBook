@@ -5,7 +5,7 @@ options(mc.cores=parallel::detectCores())
 d <- read.csv(file='input/data-shogi-player.txt')
 N <- max(d)
 G <- nrow(d)
-data <- list(N=N, G=G, LW=as.matrix(d))
+data <- list(N=N, G=G, LW=d)
 
 stanmodel <- stan_model(file='model/model10-4.stan')
 fit <- sampling(stanmodel, data=data, pars=c('mu','s_mu','s_pf'), seed=1234)
