@@ -28,6 +28,4 @@ model {
     phi[k] ~ dirichlet(Alpha);
   for (e in 1:E)
     target += Freq[e] * CateCate_lpmf(ItemID[e] | K, theta[PersonID[e]], phi);
-    # cannot compile due to a bug in Stan 2.11.0
-    # https://github.com/stan-dev/stan/issues/1944
 }
