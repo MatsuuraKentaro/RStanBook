@@ -17,8 +17,8 @@ p <- ggplot.obspred(data=d_est, xylim=c(9, 24), size=0.8)
 p <- p + geom_label_repel(
   data=d_all[top3_diff, ], aes(label=name),
   box.padding=grid::unit(2, 'lines'),
-  nudge_x=ifelse(d_all[top3_diff, ]$diff > 0, 2, -2),
-  nudge_y=ifelse(d_all[top3_diff, ]$diff > 0, -1, 1)
+  nudge_x=ifelse(d_all[top3_diff, ]$diff > 0, 4, -3),
+  nudge_y=ifelse(d_all[top3_diff, ]$diff > 0, -2, 3)
 )
 p <- p + labs(x='Observed', y='Predicted')
 p <- p + scale_x_continuous(breaks=seq(0, 25, 5))

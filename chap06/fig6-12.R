@@ -20,9 +20,9 @@ plot.multinormal <- function(file) {
   g_xy <- ggplotGrob(p_xy)
   g_x <- ggplotGrob(p_x)
   g <- rbind(g_x, g_xy, size='first')
-  g$widths[1:3] <- grid::unit.pmax(g1$widths[1:3], g2$widths[1:3])
-  g$heights[7:12] <- rep(unit(0.3,'mm'), 6)
-  g$heights[6] <- unit(2,'cm')
+  g$widths[1:3] <- grid::unit.pmax(g_xy$widths[1:3], g_x$widths[1:3])
+  g$heights[8:13] <- rep(unit(0.3,'mm'), 6)
+  g$heights[7] <- unit(2,'cm')
 
   png(file=file, res=300, w=1200, h=1400)
   grid::grid.draw(g)

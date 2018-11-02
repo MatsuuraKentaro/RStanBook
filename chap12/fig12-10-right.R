@@ -1,4 +1,5 @@
 library(Nippon)
+library(NipponMap)
 
 load('output/result-model12-14.RData')
 ms <- rstan::extract(fit)
@@ -9,5 +10,5 @@ cols <- lattice::level.colors(
   col.regions=colorRampPalette(RColorBrewer::brewer.pal(9,'Greys'))(100)
 )
 png('output/fig12-10-right.png', w=800, h=600)
-JapanPrefecturesMap(col=cols)
+JapanPrefMap(col=cols)
 dev.off()

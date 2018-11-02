@@ -5,7 +5,7 @@ lab_seq <- seq(from=0.2, to=1, by=0.2)
 
 plot.tern <- function(d, file) {
   p <- ggtern(data=d, aes(x=z, y=y, z=x))
-  p <- p + theme_bw(base_size=18, base_family='serif')
+  p <- p + theme_bw(base_size=18, base_family='serif') + theme_latex(value=TRUE)
   p <- p + theme(
     plot.margin=margin(-5,-5,-5,-5,'mm'),
     tern.axis.line=element_line(color=gray(0.2)),
