@@ -1,5 +1,6 @@
 | 修正のある刷 | ページ | 行 | 修正前 | 修正後 |
 |:-----------|:------------|:------------|:------------|:------------|
+| 11 | 84 | 2行目 | ![fig05a](errata/fig05a.png) | ![fig05b](errata/fig05b.png) |
 | 9 | 61 | 図5.2 | (データが異なりましたので差し替えます) | ![fig5-2](chap05/output/fig5-2.png) |
 | 9 | 206 | (11.5)式 | ![fig02a](errata/fig02a.png) | ![fig02b](errata/fig02b.png) |
 | 9 | 231 | 10行目 | ![fig03a](errata/fig03a.png) | ![fig03b](errata/fig03b.png) |
