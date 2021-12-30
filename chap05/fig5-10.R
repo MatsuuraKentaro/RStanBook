@@ -1,20 +1,18 @@
 library(ggplot2)
-set.seed(123)
 
 load('output/result-model5-5.RData')
 ms <- rstan::extract(fit)
 
-d_qua <- t(apply(ms$q, 2, quantile, prob=c(0.1, 0.5, 0.9)))
-colnames(d_qua) <- c('p10', 'p50', 'p90')
-d_qua <- data.frame(d, d_qua)
-d_qua$Y <- as.factor(d_qua$Y)
-d_qua$A <- as.factor(d_qua$A)
+qua <- apply(ms$q, 2, quantile, prob=c(0.1, 0.5, 0.9))
+d_est <- data.frame(d, t(qua), check.names=FALSE)
+d_est$Y <- as.factor(d_est$Y)
+d_est$A <- as.factor(d_est$A)
 
-p <- ggplot(data=d_qua, aes(x=Y, y=p50))
-p <- p + theme_bw(base_size=18)
-p <- p + coord_flip()
-p <- p + geom_violin(trim=FALSE, size=1.5, color='grey80')
-p <- p + geom_point(aes(color=A), position=position_jitter(w=0.4, h=0), size=1)
-p <- p + scale_color_manual(values=c('grey5', 'grey50'))
-p <- p + labs(x='Y', y='q')
+p <- ggplot(data=d_est, aes(x=Y, y=`50%`)) +
+  theme_bw(base_size=18) +
+  coord_flip() +
+  geom_violin(trim=FALSE, size=1, color='grey80') +
+  geom_point(aes(color=A), position=position_jitter(w=0.3, h=0), size=0.5) +
+  scale_color_manual(values=c('grey5', 'grey50')) +
+  labs(x='Y', y='q')
 ggsave(file='output/fig5-10.png', plot=p, dpi=300, w=4.5, h=3)
