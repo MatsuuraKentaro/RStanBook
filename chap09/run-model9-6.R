@@ -17,3 +17,16 @@ fit <- stan(file='model/model9-6.stan', data=data, seed=123)
 
 save.image('output/result-model9-6.RData')
 # write.table(d, file='input/data-conc-2-NA-long.txt', sep=',', quote=FALSE, row.names=FALSE)
+
+
+## dplyr/tidyr version
+library(dplyr)
+
+d_wide <- read.csv('input/data-conc-2-NA-wide.txt')
+N <- nrow(d_wide)
+
+d <- d_wide %>% 
+  tidyr::pivot_longer(cols=-PersonID, values_to='Y') %>% 
+  mutate(Time=readr::parse_number(name)) %>% 
+  select(-name) %>% 
+  na.omit()
