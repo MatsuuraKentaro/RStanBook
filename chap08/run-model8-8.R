@@ -25,8 +25,8 @@ probs <- c(0.1, 0.5, 0.9)
 auces <- numeric(N_mcmc)
 m_roc <- matrix(nrow=length(spec), ncol=N_mcmc)
 for (i in 1:N_mcmc) {
-  roc_res <- roc(d2$Y, ms$q[i,])
+  roc_res <- roc(d2$Y, ms$q[i,], quiet=TRUE)
   auces[i] <- as.numeric(roc_res$auc)
-  m_roc[,i] <- coords(roc_res, x=spec, input='specificity', ret='sensitivity')
+  m_roc[,i] <- coords(roc_res, x=spec, input='specificity', ret='sensitivity')$sensitivity
 }
 quantile(auces, prob=probs)

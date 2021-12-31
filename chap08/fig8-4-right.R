@@ -15,7 +15,9 @@ colnames(dx) <- c('Xmin', 'Xmax')
 X_new <- min(dx):max(dx)
 N_X <- length(X_new)
 y_base_mcmc1 <- as.data.frame(matrix(nrow=N_mcmc, ncol=N_X))
-for (i in 1:N_X) y_base_mcmc1[,i] <- ms1$a + ms1$b * X_new[i]
+for (i in 1:N_X) {
+  y_base_mcmc1[,i] <- ms1$a + ms1$b * X_new[i]
+} 
 y_base_med1 <- apply(y_base_mcmc1, 2, median)
 d1 <- data.frame(X=rep(X_new, 4), Y=rep(y_base_med1, 4), KID=rep(1:4, each=N_X))
 d1 <- transform(d1, Model='8-1')
@@ -36,16 +38,16 @@ for (k in 1:K) {
 }
 
 
-p <- ggplot(d, aes(X, Y, shape=as.factor(KID)))
-p <- p + theme_bw(base_size=20) + theme(legend.key.width=grid::unit(2.5,'line'))
-p <- p + facet_wrap(~KID)
-p <- p + geom_line(data=d1, aes(alpha=Model, linetype=Model, size=Model))
-p <- p + geom_line(data=d2, aes(alpha=Model, linetype=Model, size=Model))
-p <- p + geom_line(data=d3, aes(alpha=Model, linetype=Model, size=Model))
-p <- p + geom_point(size=3, alpha=0.3)
-p <- p + scale_shape_manual(values=c(16, 2, 4, 9))
-p <- p + scale_size_manual(values=c(2, 1, 1))
-p <- p + scale_linetype_manual(values=c('solid', '31', 'solid'))
-p <- p + scale_alpha_manual(values=c(0.2, 0.6, 1))
-p <- p + labs(x='X', y='Y', shape='KID')
+p <- ggplot(d, aes(X, Y, shape=as.factor(KID))) +
+  theme_bw(base_size=20) + theme(legend.key.width=grid::unit(2.5,'line')) +
+  facet_wrap(~KID) +
+  geom_line(data=d1, aes(alpha=Model, linetype=Model, size=Model)) +
+  geom_line(data=d2, aes(alpha=Model, linetype=Model, size=Model)) +
+  geom_line(data=d3, aes(alpha=Model, linetype=Model, size=Model)) +
+  geom_point(size=3, alpha=0.3) +
+  scale_shape_manual(values=c(16, 2, 4, 9)) +
+  scale_size_manual(values=c(2, 1, 1)) +
+  scale_linetype_manual(values=c('solid', '31', 'solid')) +
+  scale_alpha_manual(values=c(0.2, 0.6, 1)) +
+  labs(x='X', y='Y', shape='KID')
 ggsave(p, file='output/fig8-4-right.png', dpi=300, w=6.3, h=5)
