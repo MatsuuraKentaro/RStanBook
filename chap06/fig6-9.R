@@ -1,5 +1,4 @@
 library(ggplot2)
-source('../common.R')
 
 d_para <- data.frame(a=c(1, 3, 3), b=c(1, 3, 1), gr=letters[1:3])
 my_labs <- parse(text=sprintf('alpha==%.0f~~beta==%.0f', d_para$a, d_para$b))
