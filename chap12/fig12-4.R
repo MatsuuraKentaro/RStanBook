@@ -1,19 +1,30 @@
 library(ggplot2)
-source('../common.R')
 
 load('output/result-model12-6.RData')
 ms <- rstan::extract(fit)
 
-d_est <- data.frame.quantile.mcmc(x=1:T, y_mcmc=ms$mu, probs=c(0.1, 0.25, 0.5, 0.75, 0.9))
-p <- ggplot.5quantile(data=d_est, size=0.5)
-p <- p + geom_point(data=d, aes(x=X, y=Y), shape=16, size=1)
-p <- p + geom_line(data=d, aes(x=X, y=Y), size=0.25)
-p <- p + labs(x='Time (Quarter)', y='Y')
-p <- p + coord_cartesian(xlim=c(1, 44))
-ggsave(file='output/fig12-4-left.png', plot=p, dpi=300, w=4, h=3)
+qua <- apply(ms$mu, 2, quantile, probs=c(0.1, 0.25, 0.50, 0.75, 0.9))
+d_est <- data.frame(X=1:T, t(qua), check.names=FALSE)
 
-d_est <- data.frame.quantile.mcmc(x=1:T, y_mcmc=ms$season, probs=c(0.1, 0.25, 0.5, 0.75, 0.9))
-p <- ggplot.5quantile(data=d_est, size=0.5)
-p <- p + labs(x='Time (Quarter)', y='Y')
-p <- p + coord_cartesian(xlim=c(1, 44))
-ggsave(file='output/fig12-4-right.png', plot=p, dpi=300, w=4, h=3)
+p <- ggplot() +  
+  theme_bw(base_size=18) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`10%`, ymax=`90%`), fill='black', alpha=1/6) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
+  geom_point(data=d, aes(x=X, y=Y), shape=16, size=1) +
+  geom_line(data=d, aes(x=X, y=Y), size=0.25) +
+  labs(x='Time (Quarter)', y='Y') +
+  coord_cartesian(xlim=c(1, 44))
+ggsave(p, file='output/fig12-4-left.png', dpi=300, w=4, h=3)
+
+qua <- apply(ms$season, 2, quantile, probs=c(0.1, 0.25, 0.50, 0.75, 0.9))
+d_est <- data.frame(X=1:T, t(qua), check.names=FALSE)
+
+p <- ggplot() +  
+  theme_bw(base_size=18) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`10%`, ymax=`90%`), fill='black', alpha=1/6) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
+  labs(x='Time (Quarter)', y='Y') +
+  coord_cartesian(xlim=c(1, 44))
+ggsave(p, file='output/fig12-4-right.png', dpi=300, w=4, h=3)

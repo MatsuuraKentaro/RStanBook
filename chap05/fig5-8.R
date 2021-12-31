@@ -11,7 +11,7 @@ p <- ggplot(data=d_est, aes(x=Y, y=`50%`, ymin=`10%`, ymax=`90%`, shape=A, fill=
   theme_bw(base_size=18) + theme(legend.key.height=grid::unit(2.5,'line')) +
   coord_fixed(ratio=1, xlim=c(5, 70), ylim=c(5, 70)) +
   geom_pointrange(size=0.5, color='grey5') +
-  geom_abline(aes(slope=1, intercept=0), color='black', alpha=3/5, linetype='31') +
+  geom_abline(aes(slope=1, intercept=0), color='black', alpha=3/5, linetype='dashed') +
   scale_shape_manual(values=c(21, 24)) +
   scale_fill_manual(values=c('white', 'grey70')) +
   labs(x='Observed', y='Predicted') +

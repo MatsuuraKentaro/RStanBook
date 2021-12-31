@@ -1,4 +1,3 @@
-library(Nippon)
 library(NipponMap)
 
 load('output/result-model12-14.RData')

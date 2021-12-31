@@ -1,5 +1,4 @@
 library(ggplot2)
-source('../common.R')
 
 load('output/result-model12-13.RData')
 ms <- rstan::extract(fit)
@@ -13,7 +12,13 @@ dev.off()
 TID <- as.matrix(TID)
 mean_Y <- sapply(1:T, function(t) mean(d[TID==t]) - mean(d))
 
-d_est <- data.frame.quantile.mcmc(x=mean_Y, y_mcmc=ms$beta)
-p <- ggplot.obspred(data=d_est, xylim=c(-5, 5), size=0.8)
-p <- p + labs(x='Mean of Y[TID]', y='beta[t]')
-ggsave(file='output/fig12-9-right.png', plot=p, dpi=300, w=4.534, h=4.534)
+qua <- apply(ms$beta, 2, quantile, probs=c(0.025, 0.25, 0.50, 0.75, 0.975))
+d_est <- data.frame(X=mean_Y, t(qua), check.names=FALSE)
+
+p <- ggplot(data=d_est, aes(x=X, y=`50%`, ymin=`2.5%`, ymax=`97.5%`)) +
+  theme_bw(base_size=18) +
+  coord_fixed(ratio=1, xlim=c(-5, 5), ylim=c(-5, 5)) +
+  geom_pointrange(color='grey5', fill='grey95', shape=21, size=0.8) +
+  geom_abline(aes(slope=1, intercept=0), color='black', alpha=3/5, linetype='dashed') +
+  labs(x='Mean of Y[TID]', y='beta[t]')
+ggsave(p, file='output/fig12-9-right.png', dpi=300, w=4.534, h=4.534)

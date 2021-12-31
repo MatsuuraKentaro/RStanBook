@@ -1,4 +1,3 @@
-library(Nippon)
 library(NipponMap)
 
 d <- read.csv('input/data-map-temperature.txt')
