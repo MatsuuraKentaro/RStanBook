@@ -1,10 +1,15 @@
 library(ggplot2)
-source('../common.R')
 
 load('output/result-model7-1.RData')
 ms <- rstan::extract(fit)
 
-d_est <- data.frame.quantile.mcmc(x=d$Y, y_mcmc=ms$y_pred, probs=c(0.1, 0.25, 0.5, 0.75, 0.9))
-p <- ggplot.obspred(data=d_est, xylim=c(-50, 1900))
-p <- p + labs(x='Observed', y='Predicted')
-ggsave(file='output/fig7-3-left.png', plot=p, dpi=300, w=4.2, h=4)
+qua <- apply(ms$y_pred, 2, quantile, probs=c(0.1, 0.25, 0.50, 0.75, 0.9))
+d_est <- data.frame(X=d$Y, t(qua), check.names=FALSE)
+
+p <- ggplot(data=d_est, aes(x=X, y=`50%`)) +
+  theme_bw(base_size=18) +
+  coord_fixed(ratio=1, xlim=c(-50, 1900), ylim=c(-50, 1900)) +
+  geom_pointrange(aes(ymin=`10%`, ymax=`90%`), color='grey5', fill='grey95', shape=21) +
+  geom_abline(aes(slope=1, intercept=0), color='black', alpha=3/5, linetype='dashed') +
+  labs(x='Observed', y='Predicted')
+ggsave(p, file='output/fig7-3-left.png', dpi=300, w=4.2, h=4)

@@ -1,12 +1,17 @@
 library(ggplot2)
-source('../common.R')
 
 load('output/result-model7-8.RData')
 ms <- rstan::extract(fit)
 
-d_est <- data.frame.quantile.mcmc(x=X_new, y_mcmc=ms$y_new)
-p <- ggplot.5quantile(data=d_est)
-p <- p + geom_point(data=d, aes(x=X, y=Y), shape=1, size=3)
-p <- p + labs(x='X', y='Y')
-p <- p + coord_cartesian(xlim=c(-0.2, 11.2), ylim=c(-25, 75))
+qua <- apply(ms$y_new, 2, quantile, prob=c(0.025, 0.25, 0.5, 0.75, 0.975))
+d_est <- data.frame(X=X_new, t(qua), check.names=FALSE)
+
+p <- ggplot() +
+  theme_bw(base_size=18) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
+  geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), size=1) +
+  geom_point(data=d, aes(x=X, y=Y), shape=1, size=3) +
+  labs(x='X', y='Y') +
+  coord_cartesian(xlim=c(-0.2, 11.2), ylim=c(-25, 75))
 ggsave(file='output/fig7-12-left.png', plot=p, dpi=300, w=4, h=3)
