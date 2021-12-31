@@ -40,7 +40,7 @@ source('ex1.R')
 ## ソースコードの実行環境
 | 主なソフトやパッケージ名 | 執筆時点 | サポートページ内の現状 |
 |:-----------|:------------|:------------|
-| OS | Windows 7 SP1 (64bit) | Windows 7 SP1 (64bit) |
+| OS | Windows 7 SP1 (64bit) | Windows 10 (64bit) |
 | R | 3.3.1 | 4.1.2 |
 | Rtools | Rtools34 | Rtools40v2 |
 | Stan | 2.11 | 2.28 |
