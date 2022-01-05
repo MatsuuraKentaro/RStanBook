@@ -43,7 +43,6 @@ source('ex1.R')
 | OS | Windows 7 SP1 (64bit) | Windows 10 (64bit) |
 | R | 3.3.1 | 4.1.2 |
 | Rtools | Rtools34 | Rtools40v2 |
-| Stan | 2.11 | 2.28 |
 | rstan | 2.11.1 | 2.21.3 |
 | ggplot | 2.1.0 | 3.3.5 |
 | ggmcmc | 1.1 | 1.5.1.1 |
