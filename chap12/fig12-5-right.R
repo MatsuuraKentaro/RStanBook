@@ -10,11 +10,11 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
-  geom_line(data=d_est, aes(x=X, y=`2.5%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`97.5%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`25%`), size=0.2) +
-  geom_line(data=d_est, aes(x=X, y=`75%`), size=0.2) +
-  geom_line(data=d, aes(x=X, y=Y), size=0.3, alpha=0.4) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.5) +
+  geom_line(data=d_est, aes(x=X, y=`2.5%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`97.5%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`25%`), linewidth=0.2) +
+  geom_line(data=d_est, aes(x=X, y=`75%`), linewidth=0.2) +
+  geom_line(data=d, aes(x=X, y=Y), linewidth=0.3, alpha=0.4) +
   labs(x='Time (Second)', y='Y')
 ggsave(p, file='output/fig12-5-right.png', dpi=300, w=4, h=3)

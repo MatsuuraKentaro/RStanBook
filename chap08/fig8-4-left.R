@@ -17,7 +17,7 @@ d_est <- rbind(d_est1, d_est2)
 p <- ggplot(data=d_est, aes(x=KID, y=`50%`, ymin=`2.5%`, ymax=`97.5%`, shape=Model, linetype=Model, fill=Model)) +
   theme_bw(base_size=18) + theme(legend.key.height=grid::unit(2.5,'line')) +
   geom_pointrange(size=0.6) +
-  geom_hline(yintercept=median(ms1$a), color='black', alpha=0.3, linetype='solid', size=1.2) +
+  geom_hline(yintercept=median(ms1$a), color='black', alpha=0.3, linetype='solid', linewidth=1.2) +
   scale_shape_manual(values=c(21, 21)) +
   scale_linetype_manual(values=c('31', 'solid')) +
   scale_fill_manual(values=c('white','black')) +

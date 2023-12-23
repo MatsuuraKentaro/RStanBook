@@ -16,7 +16,7 @@ d$A <- as.factor(d$A)
 p <- ggplot(d_est, aes(x=X, y=`50%`)) +
   theme_bw(base_size=18) +
   geom_ribbon(aes(ymin=`10%`, ymax=`90%`), fill='black', alpha=2/6) +
-  geom_line(size=1) +
+  geom_line(linewidth=1) +
   geom_point(data=subset(d, A==0 & Weather=='A'), aes(x=Score, y=Y, color=A),
              position=position_jitter(w=0, h=0.25), size=0.5) +
   labs(x='Score', y='q') +

@@ -10,9 +10,9 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`10%`, ymax=`90%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.5) +
   geom_point(data=d, aes(x=X, y=Y), shape=16, size=1) +
-  geom_line(data=d, aes(x=X, y=Y), size=0.25) +
+  geom_line(data=d, aes(x=X, y=Y), linewidth=0.25) +
   labs(x='Time (Quarter)', y='Y') +
   coord_cartesian(xlim=c(1, 44))
 ggsave(p, file='output/fig12-4-left.png', dpi=300, w=4, h=3)
@@ -24,7 +24,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`10%`, ymax=`90%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.5) +
   labs(x='Time (Quarter)', y='Y') +
   coord_cartesian(xlim=c(1, 44))
 ggsave(p, file='output/fig12-4-right.png', dpi=300, w=4, h=3)

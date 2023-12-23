@@ -9,7 +9,7 @@ d <- read.csv(file='input/data-conc-2.txt') %>%
 p <- ggplot(data=d, aes(x=Time, y=Y)) +
   theme_bw(base_size=18) +
   facet_wrap(~PersonID) +
-  geom_line(size=1) +
+  geom_line(linewidth=1) +
   geom_point(size=3) +
   labs(x='Time (hour)', y='Y') +
   scale_x_continuous(breaks=c(0,6,12,24), limit=c(0,24)) +

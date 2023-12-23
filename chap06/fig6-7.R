@@ -7,7 +7,7 @@ p <- ggplot(data.frame(X=c(0, 5)), aes(x=X)) +
   theme_bw(base_size=18) +
   theme(legend.key.width=grid::unit(2.5,'line')) +
   mapply(
-    function(b, co) stat_function(fun=dexp, args=list(rate=b), aes_q(linetype=co)),
+    function(b, co) stat_function(fun=dexp, args=list(rate=b), aes(linetype=co)),
     d_para$b, d_para$gr
   ) +
   scale_linetype_manual('parameter', values=c('solid', '12'), labels=my_labs) +

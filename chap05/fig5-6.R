@@ -18,7 +18,7 @@ for (i in 1:N_col) {
   } else {
     bw <- (max(x)-min(x))/10
     p <- p + geom_histogram(aes(fill=A), color='grey20', binwidth=bw) +
-      geom_line(eval(bquote(aes(y=..count..*.(bw)))), stat='density')
+      geom_line(eval(bquote(aes(y=after_stat(count)*.(bw)))), stat='density')
   }
   p <- p + geom_label(data=data.frame(x=-Inf, y=Inf, label=colnames(d)[i]), aes(x=x, y=y, label=label), hjust=0, vjust=1) +
     scale_fill_manual(values=alpha(c('white', 'grey40'), 0.5))

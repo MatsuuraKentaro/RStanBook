@@ -20,7 +20,7 @@ d_long <- d_mcmc %>%
 p <- ggplot() +
   theme_bw(base_size=18) +
   coord_flip() +
-  geom_violin(data=d_long %>% filter(grepl('a1_', X)), aes(x=X, y=value), fill='white', color='grey80', size=2, alpha=0.3, scale='width') +
+  geom_violin(data=d_long %>% filter(grepl('a1_', X)), aes(x=X, y=value), fill='white', color='grey80', linewidth=2, alpha=0.3, scale='width') +
   geom_pointrange(data=d_est %>% filter(grepl('a1_', X)), aes(x=X, y=`50%`, ymin=`2.5%`, ymax=`97.5%`), size=1) +
   labs(x='parameter', y='value')
 ggsave(file='fig-ex3-a1.png', plot=p, dpi=300, width=4, height=5)
@@ -28,7 +28,7 @@ ggsave(file='fig-ex3-a1.png', plot=p, dpi=300, width=4, height=5)
 p <- ggplot() +
   theme_bw(base_size=18) +
   coord_flip() +
-  geom_violin(data=d_long %>% filter(grepl('b1_', X)), aes(x=X, y=value), fill='white', color='grey80', size=2, alpha=0.3, scale='width') +
+  geom_violin(data=d_long %>% filter(grepl('b1_', X)), aes(x=X, y=value), fill='white', color='grey80', linewidth=2, alpha=0.3, scale='width') +
   geom_pointrange(data=d_est %>% filter(grepl('b1_', X)), aes(x=X, y=`50%`, ymin=`2.5%`, ymax=`97.5%`), size=1) +
   labs(x='parameter', y='value')
 ggsave(file='fig-ex3-b1.png', plot=p, dpi=300, width=4, height=5)

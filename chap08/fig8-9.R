@@ -19,8 +19,8 @@ d_long <- d_mcmc %>%
 p <- ggplot() +
   theme_bw(base_size=18) +
   coord_flip() +
-  geom_violin(data=d_long, aes(x=X, y=value), fill='white', color='grey80', size=2, alpha=0.3, scale='width') +
-  geom_pointrange(data=d_qua, aes(x=X, y=`50%`, ymin=`2.5%`, ymax=`97.5%`), size=1) +
+  geom_violin(data=d_long, aes(x=X, y=value), fill='white', color='grey80', linewidth=2, alpha=0.3, scale='width') +
+  geom_pointrange(data=d_est, aes(x=X, y=`50%`, ymin=`2.5%`, ymax=`97.5%`), size=1) +
   labs(x='parameter', y='value') +
   scale_y_continuous(breaks=seq(from=-2, to=6, by=2))
 ggsave(file='output/fig8-9-left.png', plot=p, dpi=300, w=4, h=4)

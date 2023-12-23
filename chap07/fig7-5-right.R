@@ -10,7 +10,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=0.5) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=0.5) +
   geom_point(data=d, aes(x=X, y=Y), shape=1, size=2) +
   labs(x='X', y='Y') +
   scale_y_continuous(breaks=seq(from=0, to=100, by=50), limits=c(0, 130))

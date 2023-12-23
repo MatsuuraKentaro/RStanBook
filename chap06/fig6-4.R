@@ -7,7 +7,7 @@ p <- ggplot(data.frame(X=c(0, 1)), aes(x=X)) +
   theme_bw(base_size=18) +
   theme(legend.position='bottom', legend.direction ='vertical', legend.key.width=grid::unit(2.5,'line')) +
   mapply(
-    function(a, b, co) stat_function(fun=dbeta, args=list(shape1=a, shape2=b), aes_q(linetype=co)),
+    function(a, b, co) stat_function(fun=dbeta, args=list(shape1=a, shape2=b), aes(linetype=co)),
     d_para$a, d_para$b, d_para$gr
   ) +
   scale_linetype_manual('parameter', values=c('solid', '52', '12'), labels=my_labs) +
@@ -22,7 +22,7 @@ p <- ggplot(data.frame(X=c(0, 1)), aes(x=X)) +
   theme_bw(base_size=18) +
   theme(legend.position='bottom', legend.direction ='vertical', legend.key.width=grid::unit(2.5,'line')) +
   mapply(
-    function(a, b, co) stat_function(fun=dbeta, args=list(shape1=a, shape2=b), aes_q(linetype=co)),
+    function(a, b, co) stat_function(fun=dbeta, args=list(shape1=a, shape2=b), aes(linetype=co)),
     d_para$a, d_para$b, d_para$gr
   ) +
   scale_linetype_manual('parameter', values=c('solid', '52', '12'), labels=my_labs) +

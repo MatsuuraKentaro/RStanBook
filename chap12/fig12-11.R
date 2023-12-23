@@ -54,7 +54,7 @@ bw <- 0.2
 p <- ggplot(data=d_mode, aes(x=X)) +
   theme_bw(base_size=18) +
   geom_histogram(binwidth=bw, color='black', fill='white') +
-  geom_density(eval(bquote(aes(y=..count..*.(bw)))), alpha=0.5, color='black', fill='gray20') +
+  geom_density(aes(y=after_stat(count)*bw), alpha=0.5, color='black', fill='gray20') +
   stat_function(fun=function(x) nrow(d)*bw*dnorm(x, mean=0, sd=s_MAP), linetype='dashed') +
   geom_rug(sides='b') +
   labs(x='value', y='count') +

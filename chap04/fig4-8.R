@@ -32,7 +32,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=1) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=1) +
   geom_point(data=d, aes(x=X, y=Y), shape=1, size=3) +
   coord_cartesian(xlim=c(22, 61), ylim=c(200, 1400)) +
   scale_y_continuous(breaks=seq(from=200, to=1400, by=400)) +
@@ -47,7 +47,7 @@ p <- ggplot() +
   theme_bw(base_size=18) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/6) +
   geom_ribbon(data=d_est, aes(x=X, ymin=`25%`, ymax=`75%`), fill='black', alpha=2/6) +
-  geom_line(data=d_est, aes(x=X, y=`50%`), size=1) +
+  geom_line(data=d_est, aes(x=X, y=`50%`), linewidth=1) +
   geom_point(data=d, aes(x=X, y=Y), shape=1, size=3) +
   coord_cartesian(xlim=c(22, 61), ylim=c(200, 1400)) +
   scale_y_continuous(breaks=seq(from=200, to=1400, by=400)) +

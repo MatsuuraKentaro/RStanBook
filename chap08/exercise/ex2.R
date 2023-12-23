@@ -26,7 +26,7 @@ p <- ggplot(d, aes(x=X, y=Y, shape=KID)) +
   theme_bw(base_size=18) + theme(legend.key.width=grid::unit(2.5,'line')) +
   facet_wrap(~KID) +
   geom_ribbon(data=d3, aes(y=`50%`, ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/5) +
-  geom_line(data=d3, aes(y=`50%`), size=1, alpha=0.8) +
+  geom_line(data=d3, aes(y=`50%`), linewidth=1, alpha=0.8) +
   geom_point(size=3) +
   scale_shape_manual(values=c(16, 2, 4, 9)) +
   labs(x='X', y='Y', shape='KID')

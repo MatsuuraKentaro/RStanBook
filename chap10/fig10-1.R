@@ -21,6 +21,6 @@ p <- ggplot(data=d, aes(x=Y)) +
   geom_histogram(binwidth=bw, colour='black', fill='white') +
   stat_function(fun=comp1, linetype='dashed') +
   stat_function(fun=comp2, linetype='dashed') +
-  stat_function(fun=comp_sum, linetype='solid', size=2, alpha=0.4) +
+  stat_function(fun=comp_sum, linetype='solid', linewidth=2, alpha=0.4) +
   labs(x='Y', y='density')
 ggsave(file='output/fig10-1.png', plot=p, dpi=300, w=4, h=3)

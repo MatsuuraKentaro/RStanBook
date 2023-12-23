@@ -18,7 +18,7 @@ p <- ggplot(data=d_est, aes(x=Time, y=`50%`)) +
   theme_bw(base_size=18) +
   facet_wrap(~PersonID) +
   geom_ribbon(aes(ymin=`2.5%`, ymax=`97.5%`), fill='black', alpha=1/5) +
-  geom_line(size=0.5) +
+  geom_line(linewidth=0.5) +
   geom_point(data=d, aes(x=Time, y=Y), size=3) +
   labs(x='Time (hour)', y='Y') +
   scale_x_continuous(breaks=Time, limit=c(0,24)) +

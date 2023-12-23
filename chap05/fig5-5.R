@@ -16,7 +16,7 @@ for (i in 1:N_col) {
     theme_bw(base_size=14) +
     theme(axis.text.x=element_text(angle=60, vjust=1, hjust=1)) +
     geom_histogram(binwidth=bw, fill='white', color='grey5') +
-    geom_line(eval(bquote(aes(y=..count..*.(bw)))), stat='density') +
+    geom_line(eval(bquote(aes(y=after_stat(count)*.(bw)))), stat='density') +
     geom_label(data=data.frame(x=-Inf, y=Inf, label=colnames(d)[i]), aes(x=x, y=y, label=label), hjust=0, vjust=1)
   ggp <- putPlot(ggp, p, i, i)
 }

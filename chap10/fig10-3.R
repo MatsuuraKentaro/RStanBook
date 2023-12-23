@@ -7,8 +7,8 @@ d <- data.frame(x=x, y1=p1, y2=p2)
 
 p <- ggplot() +
   theme_bw(base_size=18) +
-  geom_line(data=d, aes(x=x, y=y1), size=1) +
-  geom_line(data=d, aes(x=x, y=y2), size=1, linetype='31') +
+  geom_line(data=d, aes(x=x, y=y1), linewidth=1) +
+  geom_line(data=d, aes(x=x, y=y2), linewidth=1, linetype='31') +
   labs(x='y', y='probability density')
 ggsave(file='output/fig10-3.png', plot=p, dpi=300, w=4, h=3)
 

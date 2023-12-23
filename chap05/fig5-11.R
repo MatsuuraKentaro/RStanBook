@@ -25,6 +25,6 @@ p <- ggplot(data=d_est, aes(x=X, y=`50%`)) +
   coord_fixed(ratio=1, xlim=c(0,1), ylim=c(0,1)) +
   geom_abline(intercept=0, slope=1, alpha=0.5) +
   geom_ribbon(aes(ymin=`10%`, ymax=`90%`), fill='black', alpha=2/6) +
-  geom_line(size=1) +
+  geom_line(linewidth=1) +
   labs(x='False Positive', y='True Positive')
 ggsave(file='output/fig5-11.png', plot=p, dpi=300, w=4, h=4)

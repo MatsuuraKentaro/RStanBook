@@ -11,7 +11,7 @@ d_est$A <- as.factor(d_est$A)
 p <- ggplot(data=d_est, aes(x=Y, y=`50%`)) +
   theme_bw(base_size=18) +
   coord_flip() +
-  geom_violin(trim=FALSE, size=1, color='grey80') +
+  geom_violin(trim=FALSE, linewidth=1, color='grey80') +
   geom_point(aes(color=A), position=position_jitter(w=0.3, h=0), size=0.5) +
   scale_color_manual(values=c('grey5', 'grey50')) +
   labs(x='Y', y='q')

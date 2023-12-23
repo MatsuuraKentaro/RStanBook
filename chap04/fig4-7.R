@@ -21,7 +21,7 @@ p_x <- ggplot(df_mcmc, aes(x=a)) +
   theme_bw(base_size=18) +
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.x=element_blank(), axis.ticks.y=element_blank()) +
   coord_cartesian(xlim=x_range) +
-  geom_histogram(aes(y=..density..), colour='black', fill='white') +
+  geom_histogram(aes(y=after_stat(density)), colour='black', fill='white') +
   geom_density(alpha=0.3, fill='gray20') +
   scale_x_continuous(breaks=x_breaks) +
   labs(x='', y='')
@@ -30,7 +30,7 @@ p_y <- ggplot(df_mcmc, aes(x=b)) +
   theme_bw(base_size=18) +
   theme(axis.title.y=element_blank(), axis.text.x=element_blank(), axis.text.y=element_blank(), axis.ticks.x=element_blank(), axis.ticks.y=element_blank()) +
   coord_flip(xlim=y_range) +
-  geom_histogram(aes(y=..density..), colour='black', fill='white') +
+  geom_histogram(aes(y=after_stat(density)), colour='black', fill='white') +
   geom_density(alpha=0.3, fill='gray20') +
   scale_x_continuous(breaks=y_breaks) +
   labs(x='', y='')

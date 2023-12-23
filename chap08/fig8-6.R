@@ -20,7 +20,7 @@ p <- ggplot(data=d_plot, aes(x=a)) +
   theme_bw(base_size=18) +
   facet_wrap(~GID_label, nrow=3) +
   geom_histogram(binwidth=bw, color='black', fill='white') +
-  geom_density(eval(bquote(aes(y=..count..*.(bw)))), alpha=0.2, color='black', fill='gray20') +
+  geom_density(aes(y=after_stat(count)*bw), alpha=0.2, color='black', fill='gray20') +
   geom_rug(sides='b') +
   labs(x='a', y='count')
 ggsave(file='output/fig8-6-left.png', plot=p, dpi=300, w=4, h=6)
@@ -31,7 +31,7 @@ p <- ggplot(data=d_plot, aes(x=b)) +
   theme_bw(base_size=18) +
   facet_wrap(~GID_label, nrow=3) +
   geom_histogram(binwidth=bw, color='black', fill='white') +
-  geom_density(eval(bquote(aes(y=..count..*.(bw)))), alpha=0.2, color='black', fill='gray20') +
+  geom_density(aes(y=after_stat(count)*bw), alpha=0.2, color='black', fill='gray20') +
   geom_rug(sides='b') +
   labs(x='b', y='count')
 ggsave(file='output/fig8-6-right.png', plot=p, dpi=300, w=4, h=6)
